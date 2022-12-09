@@ -33,7 +33,7 @@ fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + fruit_c
 fruityvice_normalized = pd.json_normalize(fruityvice_response.json())
 # wturn json into df
 streamlit.dataframe(fruityvice_normalized)
-scrt = **streamlit.secrets["snowflake"]
+scrt = streamlit.secrets["snowflake"]
 my_cnx = snowflake.connector.connect(scrt)
 my_cur = my_cnx.cursor()
 my_cur.execute("SELECT CURRENT_USER(), CURRENT_ACCOUNT(), CURRENT_REGION()")
